@@ -8,12 +8,13 @@ on:
 jobs:
   build-docker:
     runs-on: ubuntu-latest
-        - name: Build and push Docker images
-          uses: docker/build-push-action@v5
-          with:
-            context: .
-            file: 13-3.4/alpine/Dockerfile
-            platforms: linux/amd64,linux/arm64
-            push: true
-            tags: |
-              ghcr.io/jobrad-gmbh/postgis:13-3.4-alpine
+    steps:
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: 13-3.4/alpine/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/jobrad-gmbh/postgis:13-3.4-alpine
